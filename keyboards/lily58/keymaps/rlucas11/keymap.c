@@ -93,10 +93,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_RAISE] = LAYOUT( \
   KC_GRV, _______, _______, _______, _______, _______,                         _______, _______, _______, _______, _______, KC_PLUS, \
-  KC_GRV, _______,  KC_PGUP,  KC_UP,    KC_HOME,  KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-  KC_F1,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,   KC_F6,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
+  KC_BSLS, _______,  KC_PGUP,  KC_UP,    KC_HOME,  KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
+  _______,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,   KC_F6,                     XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, \
   KC_F7,  _______,  KC_PGDN,  _______,   KC_END,  KC_F12,   _______, _______,  KC_PLUS, KC_MINS, KC_EQL,  KC_PGUP, KC_PGDN, KC_BSLS, \
-                              _______, _______, _______,  _______, _______,  _______, _______, _______ \
+                              KC_APP, _______, _______,  _______, _______,  _______, _______, _______ \
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -186,7 +186,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LGUI_T(KC_D):
 	    return TAPPING_TERM + 50;
         case RCTL_T(KC_SCLN):
-	    return TAPPING_TERM + 50;
+	    return TAPPING_TERM - 50;
         case LCTL_T(KC_A):
 	    return TAPPING_TERM + 50;
         default:
