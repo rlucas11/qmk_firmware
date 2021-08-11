@@ -164,10 +164,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_preonic_2x2u(
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PLUS,
-  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
-  _______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-  _______, _______, _______, _______, MO(_ADJUST),        _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MPLY
+  KC_BSLS,  KC_1,    KC_PGUP, KC_UP,  KC_HOME, KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL,
+  _______,  KC_F1,   KC_LEFT, KC_DOWN, KC_RGHT, KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
+  _______, KC_F7,   KC_PGDN,  KC_F9,   KC_END,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
+  _______, KC_APP, _______, _______, MO(_ADJUST),        _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Adjust (Lower + Raise)
@@ -184,8 +184,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_preonic_2x2u(
-  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  _______, RESET,   DEBUG,   _______, _______, _______, _______, TERM_ON, TERM_OFF,_______, _______, KC_DEL,
+  XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  XXXXXXX,
+  _______, RESET,   DEBUG,   _______, _______, _______, _______, XXXXXXX, XXXXXXX,  KC_F11, KC_F12,  KC_DEL,
   _______, _______, RGB_MOD,  RGB_HUI,   RGB_SAI,  RGB_VAI, RGB_SPI, QWERTY,  COLEMAK, DVORAK,  _______, _______,
   _______, RGB_TOG, RGB_RMOD ,  RGB_HUD, RGB_SAD,  RGB_VAD, RGB_SPD,  _______, _______, _______, _______, _______,
   _______, _______, _______, _______,  _______, _______,  _______, _______, _______, _______
@@ -399,7 +399,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LGUI_T(KC_D):
 	    return TAPPING_TERM + 50;
         case RCTL_T(KC_SCLN):
-	    return TAPPING_TERM + 50;
+	    return TAPPING_TERM - 50;
         case LCTL_T(KC_A):
 	    return TAPPING_TERM + 50;
         default:
